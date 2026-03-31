@@ -14,11 +14,20 @@ class FactChecker(gl.Contract):
         self.last_reason = ""
 
     @gl.public.write
-    def verify_claim(self, claim: str) -> None:
-        """Fact-check any claim using AI."""
+    def verify_claim(self, claim: str, url: str = "") -> None:
+        """Fact-check any claim using AI + optional live web evidence."""
 
-        prompt = f"""You are an impartial on-chain fact-checker.
+        def build_prompt():
+            evidence = ""
+            if url:
+                try:
+                    evidence = gl.get_webpage(url, mode="text")[:2000]
+                except:
+                    evidence = ""
+
+            return f"""You are an impartial on-chain fact-checker.
 Claim: "{claim}"
+{f'Evidence from {url}: {evidence}' if evidence else ''}
 
 Respond using ONLY the following JSON format, nothing else:
 {{
@@ -29,7 +38,7 @@ Don't include any other words or characters. Output must be only JSON.
 This result should be perfectly parseable by a JSON parser without errors."""
 
         raw_result = gl.eq_principle.prompt_non_comparative(
-            lambda: prompt,
+            build_prompt,
             task="Fact-check the claim and return only valid JSON with verdict and reason fields.",
             criteria="The verdict must be true, false, or uncertain. The reason must be a short sentence."
         )
