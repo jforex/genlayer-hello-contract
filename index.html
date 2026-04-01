@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Onchain AI Fact-Checker | GenLayer</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f5f0;
+      color: #1a1a1a;
+      min-height: 100vh;
+    }
+
+    .hero {
+      background: #0f0f0f;
+      color: #fff;
+      padding: 4rem 1rem 3rem;
+      text-align: center;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(74, 222, 128, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(74, 222, 128, 0.3);
+      margin-bottom: 16px;
+      letter-spacing: 0.05em;
+    }
+    .hero h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .hero h1 span { color: #4ade80; }
+    .hero p {
+      font-size: 16px;
+      color: #aaa;
+      max-width: 500px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #4ade80;
+      color: #0f0f0f;
+      font-size: 14px;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-secondary {
+      display: inline-block;
+      padding: 12px 24px;
+      background: transparent;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #333;
+      transition: border-color 0.15s;
+    }
+    .btn-secondary:hover { border-color: #666; }
+
+    .container { max-width: 760px; margin: 0 auto; padding: 3rem 1rem; }
+
+    .section-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1.5rem;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 3rem;
+    }
+    .how-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.25rem;
+    }
+    .how-num {
+      width: 28px; height: 28px;
+      background: #0f0f0f;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .how-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
+    .how-desc { font-size: 12px; color: #777; line-height: 1.5; }
+
+    .examples-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 1rem;
+    }
+    .example-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 12px;
+    }
+    .example-claim {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    .example-meta {
+      font-size: 12px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+    .example-result {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+    }
+    .result-true  { background: #f1f8e9; }
+    .result-false { background: #fce4e4; }
+    .result-uncertain { background: #fff8e1; }
+    .verdict-pill {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .pill-true  { background: #c8e6c9; color: #1b5e20; }
+    .pill-false { background: #ffcdd2; color: #7f0000; }
+    .pill-uncertain { background: #fff9c4; color: #f57f17; }
+    .verdict-reason { font-size: 13px; line-height: 1.5; color: #444; }
+
+    .tech-card {
+      background: #0f0f0f;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 3rem;
+      color: #fff;
+    }
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 1rem;
+    }
+    .tech-item { }
+    .tech-label { font-size: 11px; color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .tech-value { font-size: 13px; color: #ccc; word-break: break-all; }
+    .tech-value a { color: #4ade80; text-decoration: none; }
+    .tech-value a:hover { text-decoration: underline; }
+
+    .cta-card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .cta-card h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+    .cta-card p { font-size: 14px; color: #666; margin-bottom: 1.5rem; line-height: 1.6; }
+    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-dark {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #0f0f0f;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.15s;
+    }
+    .btn-dark:hover { opacity: 0.8; }
+    .btn-outline-dark {
+      display: inline-block;
+      padding: 12px 24px;
+      background: transparent;
+      color: #1a1a1a;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 8px;
+      text-decoration: none;
+      border: 1px solid #ddd;
+      transition: background 0.15s;
+    }
+    .btn-outline-dark:hover { background: #f5f5f0; }
+
+    footer {
+      text-align: center;
+      font-size: 11px;
+      color: #bbb;
+      padding: 2rem 1rem;
+      border-top: 1px solid #e0e0e0;
+      line-height: 1.8;
+    }
+    footer a { color: #bbb; text-decoration: underline; }
+
+    @media (max-width: 540px) {
+      .how-grid { grid-template-columns: 1fr; }
+      .tech-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="badge">Live on GenLayer Bradbury Testnet</div>
+    <h1>Onchain <span>AI</span> Fact-Checker</h1>
+    <p>Submit any claim. Five independent AI validators fetch live web data and reach consensus on the verdict — stored permanently on-chain. No oracle needed.</p>
+    <div class="hero-btns">
+      <a href="https://studio.genlayer.com" target="_blank" class="btn-primary">Try it in GenLayer Studio</a>
+      <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank" class="btn-secondary">View on GitHub</a>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- How it works -->
+    <div class="section-title">How it works</div>
+    <div class="how-grid">
+      <div class="how-card">
+        <div class="how-num">1</div>
+        <div class="how-title">Submit a claim</div>
+        <div class="how-desc">Call verify_claim() with any claim and an optional evidence URL on the GenLayer blockchain.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">2</div>
+        <div class="how-title">AI fetches + analyzes</div>
+        <div class="how-desc">5 independent AI validators fetch live web data on-chain and independently evaluate the claim.</div>
+      </div>
+      <div class="how-card">
+        <div class="how-num">3</div>
+        <div class="how-title">Consensus verdict</div>
+        <div class="how-desc">Validators reach consensus via Optimistic Democracy. The verdict is stored permanently on-chain.</div>
+      </div>
+    </div>
+
+    <!-- Example verdicts -->
+    <div class="examples-title">Example verdicts from the contract</div>
+
+    <div class="example-card">
+      <div class="example-claim">"The Earth is flat"</div>
+      <div class="example-meta">No evidence URL · 5 validators · Consensus reached</div>
+      <div class="example-result result-false">
+        <span class="verdict-pill pill-false">False</span>
+        <span class="verdict-reason">Overwhelming scientific evidence from geology, physics, and space exploration confirms the Earth is an oblate spheroid, not flat.</span>
+      </div>
+    </div>
+
+    <div class="example-card">
+      <div class="example-claim">"Bitcoin is the largest cryptocurrency by market cap"</div>
+      <div class="example-meta">Evidence: coinmarketcap.com · Live web data fetched on-chain · 5 validators</div>
+      <div class="example-result result-true">
+        <span class="verdict-pill pill-true">True</span>
+        <span class="verdict-reason">According to live data fetched from CoinMarketCap, Bitcoin holds the largest market capitalization among all cryptocurrencies.</span>
+      </div>
+    </div>
+
+    <div class="example-card" style="margin-bottom: 3rem;">
+      <div class="example-claim">"Satoshi Nakamoto's true identity is known"</div>
+      <div class="example-meta">No evidence URL · 5 validators · Consensus reached</div>
+      <div class="example-result result-uncertain">
+        <span class="verdict-pill pill-uncertain">Uncertain</span>
+        <span class="verdict-reason">Despite various claims and investigations, the true identity of Bitcoin's creator remains officially unverified and disputed.</span>
+      </div>
+    </div>
+
+    <!-- Tech details -->
+    <div class="section-title">Technical details</div>
+    <div class="tech-card">
+      <div class="tech-grid">
+        <div class="tech-item">
+          <div class="tech-label">Contract Address</div>
+          <div class="tech-value">0x4F4e89d636BFC442d1fFfE488F873271b498eBBc</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-label">Network</div>
+          <div class="tech-value">GenLayer Bradbury Testnet</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-label">Language</div>
+          <div class="tech-value">Python (GenLayer Intelligent Contract)</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-label">AI Consensus</div>
+          <div class="tech-value">gl.eq_principle.prompt_non_comparative</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-label">Web Fetching</div>
+          <div class="tech-value">gl.get_webpage() — no oracle needed</div>
+        </div>
+        <div class="tech-item">
+          <div class="tech-label">Source Code</div>
+          <div class="tech-value"><a href="https://github.com/jforex/genlayer-hello-contract" target="_blank">github.com/jforex/genlayer-hello-contract</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-card">
+      <h2>Try it yourself</h2>
+      <p>Open GenLayer Studio, load the contract at the address below, and call verify_claim() with any claim. The AI validators will reach consensus in about 30-60 seconds.</p>
+      <div class="cta-btns">
+        <a href="https://studio.genlayer.com" target="_blank" class="btn-dark">Open GenLayer Studio</a>
+        <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank" class="btn-outline-dark">View Source Code</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    Contract: 0x4F4e89d636BFC442d1fFfE488F873271b498eBBc · GenLayer Bradbury Testnet<br/>
+    Built with <a href="https://genlayer.com" target="_blank">GenLayer</a> Intelligent Contracts ·
+    <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank">GitHub</a>
+  </footer>
+
+</body>
+</html>
