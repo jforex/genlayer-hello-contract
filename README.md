@@ -7,7 +7,7 @@ A decentralized AI fact-checking application built with GenLayer Intelligent Con
 
 ## Live Demo
 
-- **Frontend:** [https://genlayer-hello-contract.vercel.app/](https://your-vercel-url.vercel.app)
+- **Frontend:** [Demo link](https://genlayer-hello-contract.vercel.app/)
 - **Contract:** `0x4F4e89d636BFC442d1fFfE488F873271b498eBBc`
 - **Network:** GenLayer Bradbury Testnet
 - **Demo Video:** [Watch on Loom](https://www.loom.com/share/5db7d4517e4843729ccffcea7dfee09a)
