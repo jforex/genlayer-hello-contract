@@ -11,348 +11,366 @@
       background: #f5f5f0;
       color: #1a1a1a;
       min-height: 100vh;
+      padding: 2rem 1rem;
     }
-
-    .hero {
-      background: #0f0f0f;
-      color: #fff;
-      padding: 4rem 1rem 3rem;
-      text-align: center;
-    }
+    .container { max-width: 640px; margin: 0 auto; }
+    .header { margin-bottom: 2rem; }
+    .header h1 { font-size: 24px; font-weight: 600; color: #1a1a1a; }
+    .header p { font-size: 14px; color: #666; margin-top: 6px; line-height: 1.5; }
     .badge {
       display: inline-block;
       font-size: 11px;
       font-weight: 500;
-      padding: 4px 12px;
+      padding: 3px 10px;
       border-radius: 20px;
-      background: rgba(74, 222, 128, 0.15);
-      color: #4ade80;
-      border: 1px solid rgba(74, 222, 128, 0.3);
-      margin-bottom: 16px;
-      letter-spacing: 0.05em;
-    }
-    .hero h1 {
-      font-size: 36px;
-      font-weight: 700;
+      background: #e8f5e9;
+      color: #2e7d32;
+      border: 1px solid #a5d6a7;
       margin-bottom: 12px;
-      line-height: 1.2;
     }
-    .hero h1 span { color: #4ade80; }
-    .hero p {
-      font-size: 16px;
-      color: #aaa;
-      max-width: 500px;
-      margin: 0 auto 2rem;
-      line-height: 1.6;
-    }
-    .hero-btns {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #4ade80;
-      color: #0f0f0f;
-      font-size: 14px;
-      font-weight: 700;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .btn-primary:hover { opacity: 0.85; }
-    .btn-secondary {
-      display: inline-block;
-      padding: 12px 24px;
-      background: transparent;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 8px;
-      text-decoration: none;
-      border: 1px solid #333;
-      transition: border-color 0.15s;
-    }
-    .btn-secondary:hover { border-color: #666; }
-
-    .container { max-width: 760px; margin: 0 auto; padding: 3rem 1rem; }
-
-    .section-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1.5rem;
-    }
-
-    .how-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-bottom: 3rem;
-    }
-    .how-card {
+    .card {
       background: #fff;
       border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 1.25rem;
-    }
-    .how-num {
-      width: 28px; height: 28px;
-      background: #0f0f0f;
-      color: #fff;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .how-title { font-size: 14px; font-weight: 600; margin-bottom: 6px; }
-    .how-desc { font-size: 12px; color: #777; line-height: 1.5; }
-
-    .examples-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: #999;
-      margin-bottom: 1rem;
-    }
-    .example-card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 1.25rem;
-      margin-bottom: 12px;
-    }
-    .example-claim {
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 8px;
-      color: #1a1a1a;
-    }
-    .example-meta {
-      font-size: 12px;
-      color: #999;
-      margin-bottom: 10px;
-    }
-    .example-result {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 8px;
-    }
-    .result-true  { background: #f1f8e9; }
-    .result-false { background: #fce4e4; }
-    .result-uncertain { background: #fff8e1; }
-    .verdict-pill {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 3px 8px;
-      border-radius: 20px;
-      white-space: nowrap;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-    .pill-true  { background: #c8e6c9; color: #1b5e20; }
-    .pill-false { background: #ffcdd2; color: #7f0000; }
-    .pill-uncertain { background: #fff9c4; color: #f57f17; }
-    .verdict-reason { font-size: 13px; line-height: 1.5; color: #444; }
-
-    .tech-card {
-      background: #0f0f0f;
       border-radius: 12px;
       padding: 1.5rem;
-      margin-bottom: 3rem;
-      color: #fff;
+      margin-bottom: 1rem;
     }
-    .tech-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 1rem;
+    label {
+      font-size: 13px;
+      font-weight: 500;
+      color: #444;
+      display: block;
+      margin-bottom: 6px;
     }
-    .tech-item { }
-    .tech-label { font-size: 11px; color: #666; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
-    .tech-value { font-size: 13px; color: #ccc; word-break: break-all; }
-    .tech-value a { color: #4ade80; text-decoration: none; }
-    .tech-value a:hover { text-decoration: underline; }
-
-    .cta-card {
-      background: #fff;
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      padding: 2rem;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .cta-card h2 { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-    .cta-card p { font-size: 14px; color: #666; margin-bottom: 1.5rem; line-height: 1.6; }
-    .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
-    .btn-dark {
-      display: inline-block;
-      padding: 12px 24px;
-      background: #0f0f0f;
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
+    input[type="text"] {
+      width: 100%;
+      padding: 10px 14px;
+      font-size: 15px;
+      border: 1px solid #ddd;
       border-radius: 8px;
-      text-decoration: none;
+      margin-bottom: 1rem;
+      outline: none;
+      background: #fafafa;
+      color: #1a1a1a;
+      transition: border-color 0.15s;
+    }
+    input[type="text"]:focus { border-color: #1a1a1a; background: #fff; }
+    .btn {
+      width: 100%;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background: #1a1a1a;
+      color: #fff;
       transition: opacity 0.15s;
     }
-    .btn-dark:hover { opacity: 0.8; }
-    .btn-outline-dark {
-      display: inline-block;
-      padding: 12px 24px;
-      background: transparent;
+    .btn:hover { opacity: 0.85; }
+    .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+    .btn-outline {
+      background: #fff;
       color: #1a1a1a;
-      font-size: 14px;
-      font-weight: 500;
-      border-radius: 8px;
-      text-decoration: none;
       border: 1px solid #ddd;
-      transition: background 0.15s;
+      margin-bottom: 1rem;
     }
-    .btn-outline-dark:hover { background: #f5f5f0; }
-
-    footer {
-      text-align: center;
-      font-size: 11px;
-      color: #bbb;
-      padding: 2rem 1rem;
-      border-top: 1px solid #e0e0e0;
-      line-height: 1.8;
+    .btn-outline:hover { background: #f5f5f0; opacity: 1; }
+    .wallet-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding: 10px 14px;
+      background: #f9f9f7;
+      border-radius: 8px;
+      border: 1px solid #e0e0e0;
+      font-size: 13px;
     }
-    footer a { color: #bbb; text-decoration: underline; }
-
-    @media (max-width: 540px) {
-      .how-grid { grid-template-columns: 1fr; }
-      .tech-grid { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 26px; }
+    .wallet-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #ccc;
+      margin-right: 8px;
+      display: inline-block;
     }
+    .wallet-dot.connected { background: #4caf50; }
+    .status {
+      font-size: 13px;
+      color: #666;
+      margin-top: 14px;
+      min-height: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .spinner {
+      width: 14px; height: 14px;
+      border: 2px solid #ddd;
+      border-top-color: #666;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .result-card {
+      display: none;
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+      border: 1px solid;
+    }
+    .result-true  { background: #f1f8e9; border-color: #81c784; }
+    .result-false { background: #fce4e4; border-color: #e57373; }
+    .result-uncertain { background: #fff8e1; border-color: #ffcc02; }
+    .claim-display {
+      font-size: 13px;
+      font-style: italic;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid;
+    }
+    .result-true .claim-display      { color: #2e7d32; border-color: #a5d6a7; }
+    .result-false .claim-display     { color: #b71c1c; border-color: #ef9a9a; }
+    .result-uncertain .claim-display { color: #e65100; border-color: #ffcc80; }
+    .verdict-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 4px; }
+    .result-true .verdict-badge      { color: #2e7d32; }
+    .result-false .verdict-badge     { color: #b71c1c; }
+    .result-uncertain .verdict-badge { color: #e65100; }
+    .verdict-main { font-size: 22px; font-weight: 600; margin-bottom: 8px; }
+    .result-true .verdict-main      { color: #1b5e20; }
+    .result-false .verdict-main     { color: #7f0000; }
+    .result-uncertain .verdict-main { color: #bf360c; }
+    .verdict-reason { font-size: 14px; line-height: 1.6; }
+    .result-true .verdict-reason      { color: #33691e; }
+    .result-false .verdict-reason     { color: #c62828; }
+    .result-uncertain .verdict-reason { color: #e65100; }
+    .how-it-works { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-top: 12px; }
+    .step { text-align: center; padding: 12px 8px; background: #f9f9f7; border-radius: 8px; }
+    .step-num { font-size: 11px; font-weight: 700; color: #999; letter-spacing: 0.05em; margin-bottom: 4px; }
+    .step-title { font-size: 13px; font-weight: 600; color: #1a1a1a; margin-bottom: 4px; }
+    .step-desc { font-size: 11px; color: #777; line-height: 1.4; }
+    .section-label { font-size: 12px; font-weight: 600; color: #999; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .contract-info { font-size: 11px; color: #aaa; margin-top: 1.5rem; text-align: center; word-break: break-all; line-height: 1.6; }
+    .contract-info a { color: #aaa; text-decoration: underline; }
   </style>
 </head>
 <body>
-
-  <!-- Hero -->
-  <div class="hero">
-    <div class="badge">Live on GenLayer Bradbury Testnet</div>
-    <h1>Onchain <span>AI</span> Fact-Checker</h1>
-    <p>Submit any claim. Five independent AI validators fetch live web data and reach consensus on the verdict — stored permanently on-chain. No oracle needed.</p>
-    <div class="hero-btns">
-      <a href="https://studio.genlayer.com" target="_blank" class="btn-primary">Try it in GenLayer Studio</a>
-      <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank" class="btn-secondary">View on GitHub</a>
-    </div>
-  </div>
-
   <div class="container">
+    <div class="header">
+      <div class="badge">Live on GenLayer Bradbury Testnet</div>
+      <h1>Onchain AI Fact-Checker</h1>
+      <p>Submit any claim and 5 independent AI validators reach consensus on the verdict — stored permanently on the blockchain. No oracle needed.</p>
+    </div>
 
-    <!-- How it works -->
-    <div class="section-title">How it works</div>
-    <div class="how-grid">
-      <div class="how-card">
-        <div class="how-num">1</div>
-        <div class="how-title">Submit a claim</div>
-        <div class="how-desc">Call verify_claim() with any claim and an optional evidence URL on the GenLayer blockchain.</div>
+    <div class="card">
+      <div class="wallet-bar">
+        <div>
+          <span class="wallet-dot" id="walletDot"></span>
+          <span id="walletAddress">Not connected</span>
+        </div>
+        <button class="btn btn-outline" id="connectBtn" onclick="connectWallet()" style="width:auto;padding:6px 14px;font-size:13px;margin:0;">
+          Connect Wallet
+        </button>
       </div>
-      <div class="how-card">
-        <div class="how-num">2</div>
-        <div class="how-title">AI fetches + analyzes</div>
-        <div class="how-desc">5 independent AI validators fetch live web data on-chain and independently evaluate the claim.</div>
-      </div>
-      <div class="how-card">
-        <div class="how-num">3</div>
-        <div class="how-title">Consensus verdict</div>
-        <div class="how-desc">Validators reach consensus via Optimistic Democracy. The verdict is stored permanently on-chain.</div>
+
+      <label for="claim">Claim to fact-check</label>
+      <input type="text" id="claim" placeholder="e.g. The Earth is flat" />
+
+      <label for="url">Evidence URL <span style="font-weight:400;color:#999">(optional)</span></label>
+      <input type="text" id="url" placeholder="e.g. https://coinmarketcap.com" />
+
+      <button class="btn" id="checkBtn" onclick="checkFact()">Check this claim</button>
+
+      <div class="status" id="status"></div>
+
+      <div class="result-card" id="resultCard">
+        <div class="claim-display" id="claimDisplay"></div>
+        <div class="verdict-badge" id="verdictBadge"></div>
+        <div class="verdict-main" id="verdictMain"></div>
+        <div class="verdict-reason" id="verdictReason"></div>
       </div>
     </div>
 
-    <!-- Example verdicts -->
-    <div class="examples-title">Example verdicts from the contract</div>
-
-    <div class="example-card">
-      <div class="example-claim">"The Earth is flat"</div>
-      <div class="example-meta">No evidence URL · 5 validators · Consensus reached</div>
-      <div class="example-result result-false">
-        <span class="verdict-pill pill-false">False</span>
-        <span class="verdict-reason">Overwhelming scientific evidence from geology, physics, and space exploration confirms the Earth is an oblate spheroid, not flat.</span>
-      </div>
-    </div>
-
-    <div class="example-card">
-      <div class="example-claim">"Bitcoin is the largest cryptocurrency by market cap"</div>
-      <div class="example-meta">Evidence: coinmarketcap.com · Live web data fetched on-chain · 5 validators</div>
-      <div class="example-result result-true">
-        <span class="verdict-pill pill-true">True</span>
-        <span class="verdict-reason">According to live data fetched from CoinMarketCap, Bitcoin holds the largest market capitalization among all cryptocurrencies.</span>
-      </div>
-    </div>
-
-    <div class="example-card" style="margin-bottom: 3rem;">
-      <div class="example-claim">"Satoshi Nakamoto's true identity is known"</div>
-      <div class="example-meta">No evidence URL · 5 validators · Consensus reached</div>
-      <div class="example-result result-uncertain">
-        <span class="verdict-pill pill-uncertain">Uncertain</span>
-        <span class="verdict-reason">Despite various claims and investigations, the true identity of Bitcoin's creator remains officially unverified and disputed.</span>
-      </div>
-    </div>
-
-    <!-- Tech details -->
-    <div class="section-title">Technical details</div>
-    <div class="tech-card">
-      <div class="tech-grid">
-        <div class="tech-item">
-          <div class="tech-label">Contract Address</div>
-          <div class="tech-value">0x4F4e89d636BFC442d1fFfE488F873271b498eBBc</div>
+    <div class="card">
+      <div class="section-label">How it works</div>
+      <div class="how-it-works">
+        <div class="step">
+          <div class="step-num">STEP 1</div>
+          <div class="step-title">Submit</div>
+          <div class="step-desc">Your claim is sent to the GenLayer blockchain as a transaction</div>
         </div>
-        <div class="tech-item">
-          <div class="tech-label">Network</div>
-          <div class="tech-value">GenLayer Bradbury Testnet</div>
+        <div class="step">
+          <div class="step-num">STEP 2</div>
+          <div class="step-title">Fetch + Analyze</div>
+          <div class="step-desc">5 AI validators independently fetch web data and evaluate</div>
         </div>
-        <div class="tech-item">
-          <div class="tech-label">Language</div>
-          <div class="tech-value">Python (GenLayer Intelligent Contract)</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-label">AI Consensus</div>
-          <div class="tech-value">gl.eq_principle.prompt_non_comparative</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-label">Web Fetching</div>
-          <div class="tech-value">gl.get_webpage() — no oracle needed</div>
-        </div>
-        <div class="tech-item">
-          <div class="tech-label">Source Code</div>
-          <div class="tech-value"><a href="https://github.com/jforex/genlayer-hello-contract" target="_blank">github.com/jforex/genlayer-hello-contract</a></div>
+        <div class="step">
+          <div class="step-num">STEP 3</div>
+          <div class="step-title">Consensus</div>
+          <div class="step-desc">Validators agree on a verdict — stored on-chain permanently</div>
         </div>
       </div>
     </div>
 
-    <!-- CTA -->
-    <div class="cta-card">
-      <h2>Try it yourself</h2>
-      <p>Open GenLayer Studio, load the contract at the address below, and call verify_claim() with any claim. The AI validators will reach consensus in about 30-60 seconds.</p>
-      <div class="cta-btns">
-        <a href="https://studio.genlayer.com" target="_blank" class="btn-dark">Open GenLayer Studio</a>
-        <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank" class="btn-outline-dark">View Source Code</a>
-      </div>
-    </div>
-
+    <p class="contract-info">
+      Contract: 0x4F4e89d636BFC442d1fFfE488F873271b498eBBc<br/>
+      Network: GenLayer Bradbury Testnet (Chain ID: 4918)<br/>
+      Built with <a href="https://genlayer.com" target="_blank">GenLayer</a> Intelligent Contracts
+    </p>
   </div>
 
-  <footer>
-    Contract: 0x4F4e89d636BFC442d1fFfE488F873271b498eBBc · GenLayer Bradbury Testnet<br/>
-    Built with <a href="https://genlayer.com" target="_blank">GenLayer</a> Intelligent Contracts ·
-    <a href="https://github.com/jforex/genlayer-hello-contract" target="_blank">GitHub</a>
-  </footer>
+  <script>
+    const CONTRACT = "0x4F4e89d636BFC442d1fFfE488F873271b498eBBc";
+    const BRADBURY_CHAIN_ID = "0x1336";
+    const BRADBURY_RPC = "https://studio.genlayer.com/api";
 
+    let walletConnected = false;
+
+    function setStatus(msg, loading) {
+      const el = document.getElementById("status");
+      el.innerHTML = loading ? '<div class="spinner"></div>' + msg : msg;
+    }
+
+    function showResult(claim, verdict, reason) {
+      const card = document.getElementById("resultCard");
+      const v = (verdict || "uncertain").toLowerCase();
+      card.className = "result-card result-" + v;
+      card.style.display = "block";
+      document.getElementById("claimDisplay").textContent = '"' + claim + '"';
+      const badges = { true: "Verdict: True", false: "Verdict: False", uncertain: "Verdict: Uncertain" };
+      const mains = { true: "Supported by evidence", false: "Not supported by evidence", uncertain: "Insufficient evidence" };
+      document.getElementById("verdictBadge").textContent = badges[v] || "Verdict: Uncertain";
+      document.getElementById("verdictMain").textContent = mains[v] || "Uncertain";
+      document.getElementById("verdictReason").textContent = reason || "";
+    }
+
+    async function connectWallet() {
+      if (!window.ethereum) {
+        setStatus("MetaMask not found. Please install MetaMask to use this app.");
+        return;
+      }
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_requestAccounts" });
+        try {
+          await window.ethereum.request({
+            method: "wallet_switchEthereumChain",
+            params: [{ chainId: BRADBURY_CHAIN_ID }]
+          });
+        } catch (switchErr) {
+          if (switchErr.code === 4902) {
+            await window.ethereum.request({
+              method: "wallet_addEthereumChain",
+              params: [{
+                chainId: BRADBURY_CHAIN_ID,
+                chainName: "GenLayer Bradbury Testnet",
+                nativeCurrency: { name: "GEN", symbol: "GEN", decimals: 18 },
+                rpcUrls: ["https://studio.genlayer.com/api"],
+                blockExplorerUrls: []
+              }]
+            });
+          }
+        }
+        const addr = accounts[0];
+        const short = addr.slice(0, 6) + "..." + addr.slice(-4);
+        document.getElementById("walletAddress").textContent = short;
+        document.getElementById("walletDot").classList.add("connected");
+        document.getElementById("connectBtn").textContent = "Connected";
+        document.getElementById("connectBtn").disabled = true;
+        walletConnected = true;
+        setStatus("Wallet connected. Ready to fact-check!");
+      } catch (e) {
+        setStatus("Wallet connection cancelled.");
+      }
+    }
+
+    async function checkFact() {
+      const claim = document.getElementById("claim").value.trim();
+      const url = document.getElementById("url").value.trim();
+      if (!claim) { setStatus("Please enter a claim to check."); return; }
+      if (!walletConnected) { setStatus("Please connect your wallet first."); return; }
+
+      const btn = document.getElementById("checkBtn");
+      btn.disabled = true;
+      document.getElementById("resultCard").style.display = "none";
+      setStatus("Sending transaction to GenLayer...", true);
+
+      try {
+        const accounts = await window.ethereum.request({ method: "eth_accounts" });
+        const from = accounts[0];
+
+        const calldata = JSON.stringify({
+          method: "verify_claim",
+          args: [claim, url],
+          kwargs: {}
+        });
+
+        await window.ethereum.request({
+          method: "eth_sendTransaction",
+          params: [{
+            from: from,
+            to: CONTRACT,
+            data: "0x" + Array.from(new TextEncoder().encode(calldata))
+              .map(b => b.toString(16).padStart(2, "0")).join(""),
+            gas: "0x186A0"
+          }]
+        });
+
+        setStatus("Transaction sent! Waiting for AI validators... (30-60 seconds)", true);
+        await new Promise(r => setTimeout(r, 50000));
+
+        setStatus("Reading verdict from chain...", true);
+
+        const readPayload = {
+          jsonrpc: "2.0", id: 1,
+          method: "eth_call",
+          params: [{
+            to: CONTRACT,
+            data: "0x" + Array.from(new TextEncoder().encode(
+              JSON.stringify({ method: "get_last_result", args: [], kwargs: {} })
+            )).map(b => b.toString(16).padStart(2, "0")).join("")
+          }, "latest"]
+        };
+
+        const readRes = await fetch(BRADBURY_RPC, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(readPayload)
+        });
+
+        const readData = await readRes.json();
+        let result = readData.result;
+        if (typeof result === "string") {
+          try { result = JSON.parse(result); } catch(e) {}
+        }
+
+        if (result && result.verdict) {
+          showResult(result.claim || claim, result.verdict, result.reason);
+          setStatus("Verdict recorded on-chain permanently.");
+        } else {
+          setStatus("Transaction confirmed — check GenLayer Studio for full details.");
+        }
+      } catch(e) {
+        console.error(e);
+        setStatus("Transaction failed: " + (e.message || "Unknown error"));
+      }
+      btn.disabled = false;
+    }
+
+    window.addEventListener("load", async () => {
+      if (window.ethereum) {
+        const accounts = await window.ethereum.request({ method: "eth_accounts" });
+        if (accounts.length > 0) {
+          const addr = accounts[0];
+          const short = addr.slice(0, 6) + "..." + addr.slice(-4);
+          document.getElementById("walletAddress").textContent = short;
+          document.getElementById("walletDot").classList.add("connected");
+          document.getElementById("connectBtn").textContent = "Connected";
+          document.getElementById("connectBtn").disabled = true;
+          walletConnected = true;
+        }
+      }
+    });
+  </script>
 </body>
 </html>
